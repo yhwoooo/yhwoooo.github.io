@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      :root {
+        --border-color: #07090a;
+      }
+      @keyframes sheep {
+        25% {
+          transform: scale(1.04);
+        }
+        50% {
+          transform: rotate(-5deg) scale(1);
+        }
+        75% {
+          transform: rotate(5deg);
+        }
+        100% {
+          transform: rotate(0deg);
+        }
+      }
+      @keyframes ear-move-left {
+        60% {
+          transform: rotate(0deg);
+        }
+        80% {
+          transform: rotate(-15deg);
+        }
+        90% {
+          transform: rotate(10deg);
+        }
+        95% {
+          transform: rotate(-5deg);
+        }
+        100% {
+          transform: rotate(0deg);
+        }
+      }
+      @keyframes ear-move-right {
+        60% {
+          transform: rotate(0deg);
+        }
+        80% {
+          transform: rotate(15deg);
+        }
+        90% {
+          transform: rotate(-10deg);
+        }
+        95% {
+          transform: rotate(5deg);
+        }
+        100% {
+          transform: rotate(0deg);
+        }
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      .sheep {
+        position: relative;
+        top: 100px;
+        margin: auto;
+        width: 400px;
+        height: 400px;
+        background-color: white;
+        animation: sheep 5s ease-in infinite;
+      }
+      .big-circle {
+        position: absolute;
+        top: 21px;
+        left: 21px;
+        background-color: lightskyblue;
+        width: 358px;
+        height: 358px;
+        border-radius: 50%;
+        z-index: 1;
+      }
+      .fleece {
+        position: absolute;
+        top: -80px;
+        width: 80px;
+        height: 80px;
+        border: 8px solid var(--border-color);
+        border-radius: 50%;
+        background-color: lightskyblue;
+      }
+      .fleece1 {
+        top: -3px;
+        left: 160px;
+      }
+      .fleece2 {
+        top: 10px;
+        left: 100px;
+      }
+      .fleece3 {
+        top: 10px;
+        left: 220px;
+      }
+      .fleece4 {
+        top: 43px;
+        left: 48px;
+      }
+      .fleece5 {
+        top: 43px;
+        left: 272px;
+      }
+      .fleece6 {
+        top: 93px;
+        left: 12px;
+      }
+      .fleece7 {
+        top: 93px;
+        left: 310px;
+      }
+      .fleece8 {
+        top: 154px;
+        left: 0;
+      }
+      .fleece9 {
+        top: 154px;
+        left: 320px;
+      }
+      .fleece10 {
+        top: 216px;
+        left: 9px;
+      }
+      .fleece11 {
+        top: 216px;
+        left: 311px;
+      }
+      .fleece12 {
+        top: 270px;
+        left: 40px;
+      }
+      .fleece13 {
+        top: 272px;
+        left: 278px;
+      }
+      .fleece14 {
+        top: 310px;
+        left: 92px;
+      }
+      .fleece15 {
+        top: 307px;
+        left: 224px;
+      }
+      .fleece16 {
+        top: 322px;
+        left: 160px;
+      }
+      .ear {
+        position: absolute;
+        width: 70px;
+        height: 70px;
+        border: 8px solid var(--border-color);
+        z-index: 2;
+        background-color: white;
+      }
+      .left-ear {
+        top: 140px;
+        left: 45px;
+        border-radius: 5% 0 0 80%/ 20% 0 0 80%;
+        animation: ear-move-left 2s linear infinite;
+      }
+      .right-ear {
+        top: 140px;
+        left: 285px;
+        border-radius: 0 5% 80% 0/ 0 20% 80% 0;
+        animation: ear-move-right 2s linear infinite;
+      }
+      .fleece17,
+      .fleece18,
+      .fleece19 {
+        z-index: 4;
+        background-color: lightskyblue;
+        border: none;
+        border-bottom: 10px solid var(--border-color);
+      }
+      .fleece17 {
+        top: 114px;
+        left: 90px;
+        transform: rotate(20deg);
+      }
+      .fleece18 {
+        top: 130px;
+        left: 160px;
+      }
+      .fleece19 {
+        top: 114px;
+        left: 230px;
+        transform: rotate(-20deg);
+      }
+      .face {
+        z-index: 3;
+        position: absolute;
+        width: 200px;
+        height: 170px;
+        top: 165px;
+        left: 100px;
+        border: 8px solid var(--border-color);
+        background-color: white;
+        border-radius: 0 0 50% 50%/ 50% 50% 50% 50%;
+      }
+      .nose-bottom {
+        z-index: 4;
+        position: absolute;
+        top: 300px;
+        left: 195px;
+        width: 8px;
+        height: 20px;
+        background-color: var(--border-color);
+      }
+      .nose {
+        z-index: 4;
+        position: absolute;
+        width: 8px;
+        height: 30px;
+        background-color: var(--border-color);
+      }
+      .nose-left {
+        transform: rotate(-45deg);
+        top: 278px;
+        left: 184px;
+      }
+      .nose-right {
+        transform: rotate(45deg);
+        top: 278px;
+        left: 206px;
+      }
+      .mouth {
+        z-index: 4;
+        position: absolute;
+        top: 264px;
+        left: 166px;
+        width: 69px;
+        height: 60px;
+        border-bottom: 8px solid var(--border-color);
+        border-radius: 31%;
+      }
+      .eye {
+        z-index: 3;
+        position: absolute;
+        width: 30px;
+        height: 70px;
+        border: 8px solid var(--border-color);
+        border-radius: 25px;
+      }
+      .eye-left {
+        top: 170px;
+        left: 133px;
+      }
+      .eye-right {
+        top: 170px;
+        left: 235px;
+      }
+      .eyeball {
+        z-index: 4;
+        position: absolute;
+        width: 20px;
+        height: 10px;
+        background-color: var(--border-color);
+      }
+      .eyeball-left {
+        top: 210px;
+        left: 139px;
+      }
+      .eyeball-right {
+        top: 210px;
+        left: 241px;
+      }
+      .triangle {
+        z-index: 3;
+        position: absolute;
+        width: 14px;
+        height: 14px;
+        clip-path: polygon(14px 0px, 14px 14px, 0 14px);
+        background-color: var(--border-color);
+        border-radius: 5px;
+      }
+      .t1 {
+        top: 13.4px;
+        left: 157.8px;
+        transform: rotate(34deg);
+      }
+      .t2 {
+        top: 39px;
+        left: 94px;
+        transform: rotate(12deg);
+      }
+      .t3 {
+        top: 86.8px;
+        left: 43.5px;
+        transform: rotate(-12deg);
+      }
+      .t4 {
+        top: 152px;
+        left: 16px;
+        transform: rotate(-32deg);
+      }
+      .t5 {
+        top: 221px;
+        left: 14.5px;
+        transform: rotate(-55deg);
+      }
+      .t6 {
+        top: 287.5px;
+        left: 37px;
+        transform: rotate(-80deg);
+      }
+      .t7 {
+        top: 340px;
+        left: 85.8px;
+        transform: rotate(-100deg);
+      }
+      .t8 {
+        top: 368.5px;
+        left: 154.5px;
+        transform: rotate(-123deg);
+        width: 16px;
+        height: 16px;
+        clip-path: polygon(16px 0px, 16px 16px, 0 16px);
+      }
+      .t9 {
+        top: 369px;
+        left: 229.5px;
+        transform: rotate(-147deg);
+        width: 16px;
+        height: 16px;
+        clip-path: polygon(16px 0px, 16px 16px, 0 16px);
+      }
+      .t10 {
+        top: 341.4px;
+        left: 296px;
+        transform: rotate(-171deg);
+      }
+      .t11 {
+        top: 288.2px;
+        left: 346.5px;
+        transform: rotate(-192deg);
+      }
+      .t12 {
+        top: 221.3px;
+        left: 372px;
+        transform: rotate(-215deg);
+      }
+      .t13 {
+        top: 152.7px;
+        left: 371.6px;
+        transform: rotate(-238deg);
+      }
+      .t14 {
+        top: 87px;
+        left: 342.5px;
+        transform: rotate(-261deg);
+      }
+      .t15 {
+        top: 39.2px;
+        left: 292px;
+        transform: rotate(-288deg);
+      }
+      .t16 {
+        top: 13px;
+        left: 228.2px;
+        transform: rotate(-304deg);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="sheep">
+      <div class="fleece fleece1"></div>
+      <div class="fleece fleece2"></div>
+      <div class="fleece fleece3"></div>
+      <div class="fleece fleece4"></div>
+      <div class="fleece fleece5"></div>
+      <div class="fleece fleece6"></div>
+      <div class="fleece fleece7"></div>
+      <div class="fleece fleece8"></div>
+      <div class="fleece fleece9"></div>
+      <div class="fleece fleece10"></div>
+      <div class="fleece fleece11"></div>
+      <div class="fleece fleece12"></div>
+      <div class="fleece fleece13"></div>
+      <div class="fleece fleece14"></div>
+      <div class="fleece fleece15"></div>
+      <div class="fleece fleece16"></div>
+      <div class="fleece fleece17"></div>
+      <div class="fleece fleece18"></div>
+      <div class="fleece fleece19"></div>
+      <div class="big-circle"></div>
+      <div class="ear left-ear"></div>
+      <div class="ear right-ear"></div>
+      <div class="face"></div>
+      <div class="nose-bottom"></div>
+      <div class="nose nose-left"></div>
+      <div class="nose nose-right"></div>
+      <div class="mouth"></div>
+      <div class="eye eye-left"></div>
+      <div class="eye eye-right"></div>
+      <div class="eyeball eyeball-left"></div>
+      <div class="eyeball eyeball-right"></div>
+      <div class="triangle t1"></div>
+      <div class="triangle t2"></div>
+      <div class="triangle t3"></div>
+      <div class="triangle t4"></div>
+      <div class="triangle t5"></div>
+      <div class="triangle t6"></div>
+      <div class="triangle t7"></div>
+      <div class="triangle t8"></div>
+      <div class="triangle t9"></div>
+      <div class="triangle t10"></div>
+      <div class="triangle t11"></div>
+      <div class="triangle t12"></div>
+      <div class="triangle t13"></div>
+      <div class="triangle t14"></div>
+      <div class="triangle t15"></div>
+      <div class="triangle t16"></div>
+    </div>
+  </body>
+</html>
